@@ -28,9 +28,11 @@
                         Comment for `Enable Hello World` setting.
                     </comment>
                 </field>
-                <field id="block_label" translate="label" type="text" sortOrder="20" showInDefault="1"
-                       showInWebsite="1" showInStore="1">
-                    <label>Block Label</label>
+                <field id="logo" translate="label comment" type="image" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Uploader</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">backendimage</upload_dir>
+                    <base_url type="media" scope_info="1">backendimage</base_url>
                 </field>
                 <field id="text_align" translate="label" type="select" sortOrder="30" showInDefault="1"
                        showInWebsite="1" showInStore="1">

@@ -94,9 +94,12 @@ class File extends \Magento\Framework\App\Config\Value
                 /** @var Uploader $uploader */
                 $uploader = $this->_uploaderFactory->create(['fileId' => $file]);
                 $uploader->setAllowedExtensions($this->_getAllowedExtensions());
-                $uploader->setAllowRenameFiles(true);
+                $uploader->setAllowRenameFiles(false);
                 $uploader->addValidateCallback('size', $this, 'validateMaxSize');
-                $result = $uploader->save($uploadDir);
+                $fileName = $uploader->getUploadedFileName();
+                echo $fileName;
+                $newFileName = 'image.jpg';
+                $result = $uploader->save($uploadDir, $newFileName);
             } catch (\Exception $e) {
                 throw new \Magento\Framework\Exception\LocalizedException(__('%1', $e->getMessage()));
             }
